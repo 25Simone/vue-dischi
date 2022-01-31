@@ -3,17 +3,17 @@
     <div class="card col-2">
         <!-- CARD IMAGE -->
         <div class="card-image">
-            <img :src="thumb" alt='disk cover'>
+            <img :src="disk.poster" alt='disk cover'>
         </div>
         <!-- CARD DATA -->
         <div class="card-data">
-            <h3>{{title}}</h3>
+            <h3>{{disk.title}}</h3>
             <p>
-                {{author}}
+                {{disk.author}}
                 <br>
-                {{genre}}
+                {{disk.genre}}
                 <br>
-                {{year}}
+                {{disk.year}}
             </p>
         </div>
     </div>
@@ -22,11 +22,7 @@
 <script>
 export default {
     props: {
-        thumb: String,
-        title: String,
-        author: String,
-        genre: String,
-        year: String,
+        disk: Object
     }
 }
 </script>

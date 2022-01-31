@@ -5,11 +5,7 @@
           <card-box
           v-for='(card, index) in cards'
           :key='index'
-          :thumb="card.poster"
-          :title="card.title"
-          :author="card.author"
-          :genre="card.genre"
-          :year="card.year"
+          :disk="card"
           />
         </div>
         <!-- LOADER -->
