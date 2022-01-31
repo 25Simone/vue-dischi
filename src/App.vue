@@ -22,7 +22,9 @@ export default {
     }
   },
   mounted(){
+    // SET AN INTERVAL TO SHOW THE LOADER
     setInterval(() => {
+      // SET THE API CALL
       axios.get('https://flynn.boolean.careers/exercises/api/array/music').then((result) => {
         this.disks = result.data.response
       })

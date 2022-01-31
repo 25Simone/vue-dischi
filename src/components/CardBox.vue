@@ -33,10 +33,11 @@ export default {
 .card{
     border: none;
     background: #2e3a46;
+    margin: 15px 20px;
     padding: 20px;
     display: flex;
     flex-direction: column;
-    margin: 15px 20px;
+    cursor: pointer;
     .card-image{
         width: 100%;
         img{
