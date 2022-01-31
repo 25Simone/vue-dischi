@@ -1,26 +1,29 @@
 <template>
   <div id="app">
     <header-box />
+    <main-content :cards='disks'/>
   </div>
 </template>
 
 <script>
 import axios from 'axios'
 import HeaderBox from './components/HeaderBox.vue'
+import MainContent from './components/MainContent.vue'
 
 export default {
   name: 'App',
   components: {
     HeaderBox,
+    MainContent,
   },
   data(){
     return {
-      discs: [],
+      disks: [],
     }
   },
   mounted(){
-    axios.get('https://flynn.boolean.careers/exercises/api/array/music').then((response) => {
-      this.discs = response.data;
+    axios.get('https://flynn.boolean.careers/exercises/api/array/music').then((result) => {
+      this.disks = result.data.response
     })
   },
 }
