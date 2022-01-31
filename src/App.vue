@@ -22,17 +22,15 @@ export default {
     }
   },
   mounted(){
-    axios.get('https://flynn.boolean.careers/exercises/api/array/music').then((result) => {
-      this.disks = result.data.response
-    })
+    setInterval(() => {
+      axios.get('https://flynn.boolean.careers/exercises/api/array/music').then((result) => {
+        this.disks = result.data.response
+      })
+    }, 2000)
   },
 }
 </script>
 
 <style lang="scss">
 @import './style/main.scss';
-
-#app {
-
-}
 </style>
