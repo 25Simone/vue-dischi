@@ -57,7 +57,7 @@ export default {
           }
         })
       })
-    }, 1500)
+    }, 1000)
   },
   methods: {
     filteredGeneresResults(selection) {
