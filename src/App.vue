@@ -1,6 +1,6 @@
 <template>
   <div id="app">
-    <header-box @filterGenre="filteredGeneresResults" />
+    <header-box :genres="genresList" @filterGenre="filteredGeneresResults" />
     <!-- LOADER -->
     <loader-element v-if='!loaded'/>
     <main-content v-else :cards='filteredDisks'/>
@@ -25,6 +25,7 @@ export default {
       disks: [],
       filteredDisks: [],
       loaded: false,
+      genresList: [],
     }
   },
   mounted(){
@@ -35,13 +36,21 @@ export default {
         this.disks = result.data.response;
         this.filteredDisks = result.data.response;
         this.loaded = true;
+
+        // GENERES LIST
+        this.disks.forEach((element) => {
+          if(!this.genresList.includes(element.genre)){
+            this.genresList.push(element.genre);
+          }
+        })
       })
-    }, 2000)
+    }, 1500)
   },
   methods: {
     filteredGeneresResults(selection) {
+      console.log(selection)
       this.filteredDisks = this.disks.filter((disk) => {
-        return disk.genre.toLowerCase().includes(selection);
+        return disk.genre.includes(selection);
       })
     }
   }

@@ -7,13 +7,20 @@
             name="select-genre"
             id="select-genre"
             v-model="selectedGenre"
-            @change="$emit('filterGenre', selectedGenre.toLowerCase())"
+            @change="$emit('filterGenre', selectedGenre)"
             >
             <option value="">All</option>
-            <option value="">Jazz</option>
+            <option
+            v-for="(genre, index) in genres"
+            :key="index"
+            :value="genre"
+            >
+            {{genre}}
+            </option>
+            <!-- <option value="Jazz">Jazz</option>
             <option value="">Pop</option>
             <option value="">Rock</option>
-            <option value="">metal</option>
+            <option value="">Metal</option> -->
             </select>
         </div>
     </header>
@@ -26,6 +33,9 @@ export default {
             selectedGenre: '',
         }
     },
+    props: {
+        genres: Array
+    }
 }
 </script>
 
