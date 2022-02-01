@@ -11,8 +11,6 @@
             <p>
                 {{disk.author}}
                 <br>
-                {{disk.genre}}
-                <br>
                 {{disk.year}}
             </p>
         </div>
