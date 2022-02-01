@@ -17,10 +17,23 @@
             >
             {{genre}}
             </option>
-            <!-- <option value="Jazz">Jazz</option>
-            <option value="">Pop</option>
-            <option value="">Rock</option>
-            <option value="">Metal</option> -->
+            </select>
+
+            <!-- ARTISTS SELECTION -->
+            <select
+            name="select-artist"
+            id="select-artist"
+            v-model="selectedArtist"
+            @change="$emit('filterArtist', selectedArtist)"
+            >
+            <option value="">All</option>
+            <option
+            v-for="(artist, index) in artists"
+            :key="index"
+            :value="artist"
+            >
+            {{artist}}
+            </option>
             </select>
         </div>
     </header>
@@ -31,10 +44,12 @@ export default {
     data() {
         return {
             selectedGenre: '',
+            selectedArtist: '',
         }
     },
     props: {
-        genres: Array
+        genres: Array,
+        artists: Array,
     }
 }
 </script>

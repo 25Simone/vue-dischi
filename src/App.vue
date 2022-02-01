@@ -1,6 +1,11 @@
 <template>
   <div id="app">
-    <header-box :genres="genresList" @filterGenre="filteredGeneresResults" />
+    <header-box
+    :genres="genresList"
+    :artists="artistsList"
+    @filterGenre="filteredGeneresResults"
+    @filterArtist="filteredArtistsResults"
+    />
     <!-- LOADER -->
     <loader-element v-if='!loaded'/>
     <main-content v-else :cards='filteredDisks'/>
@@ -26,6 +31,7 @@ export default {
       filteredDisks: [],
       loaded: false,
       genresList: [],
+      artistsList: [],
     }
   },
   mounted(){
@@ -43,14 +49,25 @@ export default {
             this.genresList.push(element.genre);
           }
         })
+
+        // ARTISTS LIST
+        this.disks.forEach((element) => {
+          if(!this.artistsList.includes(element.author)){
+            this.artistsList.push(element.author);
+          }
+        })
       })
     }, 1500)
   },
   methods: {
     filteredGeneresResults(selection) {
-      console.log(selection)
       this.filteredDisks = this.disks.filter((disk) => {
         return disk.genre.includes(selection);
+      })
+    },
+    filteredArtistsResults(selection) {
+      this.filteredDisks = this.disks.filter((disk) => {
+        return disk.author.includes(selection);
       })
     }
   }
