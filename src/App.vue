@@ -60,11 +60,14 @@ export default {
     }, 1000)
   },
   methods: {
+    // fUNCTION TO POPULATE THE ARRAY OF AVIABLE MUSIC GENRES
     filteredGeneresResults(selection) {
       this.filteredDisks = this.disks.filter((disk) => {
         return disk.genre.includes(selection);
       })
     },
+
+    // FUNCTION TO POPULATE THE ARRAY OF AVIABLE ARTHISTS
     filteredArtistsResults(selection) {
       this.filteredDisks = this.disks.filter((disk) => {
         return disk.author.includes(selection);
