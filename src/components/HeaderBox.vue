@@ -12,38 +12,16 @@
                 v-model="selectedGenre"
                 @change="$emit('filterGenre', selectedGenre)"
                 >
-                    <option value="">All</option>
+                    <option value="all">All</option>
                     <option
                     v-for="(genre, index) in genres"
                     :key="index"
-                    :value="genre"
+                    :value="genre.toLowerCase()"
                     >
                     {{genre}}
                     </option>
                     </select>
             </label>
-            
-
-            <!-- ARTISTS SELECTION -->
-            <label>
-                Select by Author
-                <select
-                name="select-artist"
-                id="select-artist"
-                v-model="selectedArtist"
-                @change="$emit('filterArtist', selectedArtist)"
-                >
-                    <option value="">All</option>
-                    <option
-                    v-for="(artist, index) in artists"
-                    :key="index"
-                    :value="artist"
-                    >
-                    {{artist}}
-                    </option>
-                </select>
-            </label>
-            
         </div>
     </header>
 </template>
@@ -52,8 +30,8 @@
 export default {
     data() {
         return {
-            selectedGenre: '',
-            selectedArtist: '',
+            selectedGenre: 'all',
+            selectedArtist: 'all',
         }
     },
     props: {

@@ -60,19 +60,19 @@ export default {
     }, 1000)
   },
   methods: {
-    // fUNCTION TO POPULATE THE ARRAY OF AVIABLE MUSIC GENRES
+    // fUNCTION TO FILTER BY GENRE
     filteredGeneresResults(selection) {
       this.filteredDisks = this.disks.filter((disk) => {
-        return disk.genre.includes(selection);
+        return disk.genre.toLowerCase().includes(selection) || selection === 'all';
       })
     },
 
-    // FUNCTION TO POPULATE THE ARRAY OF AVIABLE ARTHISTS
+    // FUNCTION TO FILTER BY ARTIST
     filteredArtistsResults(selection) {
       this.filteredDisks = this.disks.filter((disk) => {
-        return disk.author.includes(selection);
+        return disk.author.toLowerCase().includes(selection) || selection === 'all';
       })
-    }
+    },
   }
 }
 </script>
